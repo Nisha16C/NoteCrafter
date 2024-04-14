@@ -37,7 +37,7 @@
 					<td>{{i.Title}}</td>
 					<td>{{i.CreationDate}}</td>
                     <td><a href="{% url 'editNotes' i.id %}" class="btn btn-primary">Edit</a> |
-                    <a href="{% url 'deleteNotes' i.id %}" class="btn btn-danger" onclick="return confirm('Are your sure to Delete ?')">Delete</a></td>
+                    <a href="{% url 'deleteNotes' i.id %}" class="btn btn-danger">Delete</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

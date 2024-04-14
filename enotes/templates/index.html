@@ -1,16 +1,39 @@
 {% include 'navbar.html' %}
 {% load static %}
 <style>
-.image{
- width :100%;
- height : 655px;
- background-image :url({% static 'images/enotesss.jpg' %});
- background-repeat : no-repeat;
- background-size: cover;
+.image {
+    width: 100%;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    background-image: url({% static 'images/enotesss.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the entire background area */
+    background-position: center; /* Center the background image */
+    position: relative; /* Position relative to contain absolute positioned elements */
+}
+
+.transparentbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparentbox p {
+    font-size: 50px; /* Set font size to 30px */
+    font-style: italic; /* Apply cursive style */
+    font-weight: bold;
+    text-align: center;
+    color: rgb(0, 0, 0);
 }
 </style>
+
 <div class="image">
- <div class="transparentbox">
-     <p>Where ideas come to life, one note at a time</p>
- </div>
+    <div class="transparentbox">
+        <p style="margin-top: 0px;">Where ideas come to life, one note at a time ..</p>
+    </div>
 </div>

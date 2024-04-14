@@ -134,17 +134,12 @@
     </div>
 </section>
 
-{% if error == "no" %}
-     <script>
-	   alert('Profile has been Updated.');
-       window.location=('{% url 'profile' %}');
-     </script>
-{% endif %}
-
-{% if error == "yes" %}
-     <script>
-	    alert('Something went wrong, Try Again');
-     </script>
+{% if success_message %}
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">{{ success_message }}</p>
+    </div>
+</footer>
 {% endif %}
 
 {% endblock %}

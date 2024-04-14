@@ -1,7 +1,7 @@
 {% load static %}
 <html>
 <head>
-    <title>Login Form</title>
+    <title>Register Form</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
@@ -68,18 +68,14 @@
     </div>
 </div>
 
-{% if error == "no" %}
-     <script>
-	   alert('Registration Successfully');
-       window.location=('{% url 'user_login' %}');
-     </script>
-{% endif %}
-
-{% if error == "yes" %}
-     <script>
-	    alert('Something went wrong, Try Again');
-     </script>
-{% endif %}
+<!-- Footer message -->
+<footer class="footer">
+    <div class="container">
+        {% if success_message %}
+            <p class="text-muted">{{ success_message }}</p>
+        {% endif %}
+    </div>
+</footer>
 
 </body>
 </html>

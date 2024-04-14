@@ -62,17 +62,13 @@
     </div>
 </section>
 
-{% if error == "no" %}
-<script>
-	   alert('New Notes Added Successfully.');
-       window.location=('{% url 'addNotes' %}');
-</script>
-{% endif %}
-
-{% if error == "yes" %}
-<script>
-	    alert('Something went wrong, Try Again');
-</script>
-{% endif %}
+<!-- Footer message -->
+<footer class="footer">
+    <div class="container">
+        {% if success_message %}
+            <p class="text-muted">{{ success_message }}</p>
+        {% endif %}
+    </div>
+</footer>
 
 {% endblock %}

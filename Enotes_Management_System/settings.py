@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h=#p#1$e9vnd8_ke*nzr+=0(o7b49t2=3yf@tr#(f-7tyn%u5-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1' , '172.16.1.190']
+ALLOWED_HOSTS = ['*' , '172.16.1.190']
 
 
 # Application definition
@@ -76,14 +76,20 @@ WSGI_APPLICATION = 'Enotes_Management_System.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway', 
-        'USER': 'postgres',
-        'PASSWORD': 'aLfCxiypYlkxrzyrzooVNzCqRQOWkpCa',
-        'HOST': 'roundhouse.proxy.rlwy.net', 
-        'PORT': '21868',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway', 
+#         'USER': 'postgres',
+#         'PASSWORD': 'aLfCxiypYlkxrzyrzooVNzCqRQOWkpCa',
+#         'HOST': 'roundhouse.proxy.rlwy.net', 
+#         'PORT': '21868',
+#     }
+# }
 
 
 # Password validation

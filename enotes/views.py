@@ -42,6 +42,7 @@ def register(request):
 
     # Render the registration page with the error flag
     return render(request, 'register.html', {'error': error, 'success_message': "Registration Successfully."})
+# user_login view
 def user_login(request):
     error = ""
     success_message = ""
@@ -52,6 +53,8 @@ def user_login(request):
         if user:
             login(request, user)
             success_message = "You Login Successfully"
+            # Update user's profile if it exists
+            update_profile(user)
             return redirect('dashboard')  # Assuming you have a URL pattern named 'dashboard'
         else:
             error = "Invalid Credential, Try Again"
@@ -60,14 +63,28 @@ def user_login(request):
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
-    user = User.objects.get(id=request.user.id)
-    signup = Signup.objects.get(user=user)
+    
+    user = request.user
+    signup, created = Signup.objects.get_or_create(user=user)
     totalnotes = Notes.objects.filter(signup=signup).count()
-    return render(request, 'dashboard.html', locals())
+    first_name = user.first_name
+    last_name = user.last_name
+
+    return render(request, 'dashboard.html', {'first_name': first_name, 'last_name': last_name, 'totalnotes': totalnotes})
+
+# Update user's profile
+def update_profile(user):
+    signup, created = Signup.objects.get_or_create(user=user)
+    # Update the 'About' and 'ContactNo' fields if they are empty
+    if not signup.About:
+        signup.About = ""  # Set a default value if 'About' field is empty
+    if not signup.ContactNo:
+        signup.ContactNo = ""  # Set a default value if 'ContactNo' field is empty
+    signup.save()
 
 @login_required
 def profile(request):
-    user = User.objects.get(id=request.user.id)
+    user = request.user
     signup, created = Signup.objects.get_or_create(user=user)
     error = ""
     success_message = ""  # Initialize success_message variable
@@ -78,18 +95,22 @@ def profile(request):
         contactNo = request.POST.get('ContactNo')
         about = request.POST.get('About')
 
-        signup.user.first_name = fname
-        signup.user.last_name = lname
+        # Update user's first name and last name
+        user.first_name = fname
+        user.last_name = lname
+
+        # Update Signup object fields
         signup.ContactNo = contactNo
         signup.About = about
 
         try:
-            signup.save()
-            signup.user.save()
+            user.save()  # Save user object
+            signup.save()  # Save Signup object
             success_message = "Profile has been updated."
         except:
             error = "yes"
 
+    # Pass user and signup objects to the template
     return render(request, 'profile.html', {'user': user, 'signup': signup, 'error': error, 'success_message': success_message})
 
 @login_required

@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-h=#p#1$e9vnd8_ke*nzr+=0(o7b49t2=3yf@tr#(f-7tyn%u5-
 DEBUG = True
 
 ALLOWED_HOSTS = ['*' , '172.16.1.190']
+CSRF_TRUSTED_ORIGINS = []
 
 
 # Application definition
@@ -85,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway', 
         'USER': 'postgres',
-        'PASSWORD': 'aLfCxiypYlkxrzyrzooVNzCqRQOWkpCa',
+        'PASSWORD': 'BHfDrYUzuveHCBslmCQlTVyzGyMSjubN',
         'HOST': 'roundhouse.proxy.rlwy.net', 
-        'PORT': '21868',
+        'PORT': '12349',
     }
 }
 

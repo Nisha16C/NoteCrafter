@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['notecrafter.up.railway.app' , '172.16.1.190']
 CSRF_TRUSTED_ORIGINS = [ 'https://notecrafter.up.railway.app/' ]
+CSRF_TOKEN = ['lQ7TUW2QT4K5jeVRNRsCAA5qZG57Z9aE']
 
 
 # Application definition

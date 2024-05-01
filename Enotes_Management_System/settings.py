@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-h=#p#1$e9vnd8_ke*nzr+=0(o7b49t2=3yf@tr#(f-7tyn%u5-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['notecrafter.up.railway.app' , '172.16.1.190']
-CSRF_TRUSTED_ORIGINS = [ 'https://notecrafter.up.railway.app/' ]
-CSRF_TOKEN = ['lQ7TUW2QT4K5jeVRNRsCAA5qZG57Z9aE']
+ALLOWED_HOSTS = ['*' , '172.16.1.190']
 
 
 # Application definition
@@ -76,22 +74,22 @@ WSGI_APPLICATION = 'Enotes_Management_System.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway', 
-        'USER': 'postgres',
-        'PASSWORD': 'BHfDrYUzuveHCBslmCQlTVyzGyMSjubN',
-        'HOST': 'roundhouse.proxy.rlwy.net', 
-        'PORT': '12349',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway', 
+#         'USER': 'postgres',
+#         'PASSWORD': 'BHfDrYUzuveHCBslmCQlTVyzGyMSjubN',
+#         'HOST': 'roundhouse.proxy.rlwy.net', 
+#         'PORT': '12349',
+#     }
+# }
 
 
 # Password validation

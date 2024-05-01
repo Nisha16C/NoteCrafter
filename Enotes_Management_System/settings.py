@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-h=#p#1$e9vnd8_ke*nzr+=0(o7b49t2=3yf@tr#(f-7tyn%u5-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*' , '172.16.1.190']
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ['notecrafter.up.railway.app' , '172.16.1.190']
+CSRF_TRUSTED_ORIGINS = [ 'https://notecrafter.up.railway.app/' ]
 
 
 # Application definition

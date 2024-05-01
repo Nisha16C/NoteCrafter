@@ -1,0 +1,1 @@
+web: gunicorn Enotes_Management_System.wsgi

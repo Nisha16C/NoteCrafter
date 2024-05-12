@@ -1,1 +1,1 @@
-web: gunicorn Enotes_Management_System.wsgi
+web: gunicorn Enotes_Management_System.wsgi --log-file -

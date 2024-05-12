@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Enotes_Management_System.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR ,'enotes/templates')],
+        'DIRS': [os.path.join(BASE_DIR ,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 STATICFILES_DIR = [
-    os.path.join(BASE_DIR , 'enotes/static/')
+    os.path.join(BASE_DIR , 'static/')
 ]
 
 # Default primary key field type
